@@ -46,7 +46,7 @@ steps:
       - cat $HOME/.trash/.filepaths
       - trash_list
       - ls -la $HOME/.trash/
-      - trash_restore
+      - trash_restore testfile2 testfile3
       - ls -l /tmp
       - ls -la $HOME/.trash/
 
