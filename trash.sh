@@ -6,7 +6,7 @@ FILE_PATHS_FILE="$HOME/.trash/.filepaths"
 [ ! -f "$FILE_PATHS_FILE" ] && touch "$FILE_PATHS_FILE"
 
 trash_list() {
-  find "$HOME"/.trash/ ! -name ".filepaths"
+  find "$HOME"/.trash/ ! -name ".filepaths" ! -name ""
 }
 
 trash_put() {
