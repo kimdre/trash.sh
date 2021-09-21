@@ -1,0 +1,63 @@
+kind: pipeline
+type: docker
+name: default
+
+workspace:
+  path: /root
+
+steps:
+  - name: install
+    image: ubuntu:latest
+    pull: if-not-exists
+    commands:
+      - echo "source $HOME/trash.sh" > $HOME/.bashrc
+      - source $HOME/.bashrc
+      - ls -la $HOME/.trash/
+      - type trash
+
+  - name: test trash-empty
+    depends_on:
+      - install
+    image: ubuntu:latest
+    pull: if-not-exists
+    commands:
+      - touch /tmp/testfile{1..4}
+      - ls -l /tmp/testfile*
+      - trash /tmp/testfile*
+      - ls -l /tmp/testfile*
+      - trash-list
+      - ls -la $HOME/.trash/
+      - trash-empty
+      - ls -la $HOME/.trash/
+
+  - name: test trash-restore
+    depends_on:
+      - install
+    image: ubuntu:latest
+    pull: if-not-exists
+    commands:
+      - touch /tmp/testfile{1..4}
+      - ls -l /tmp/testfile*
+      - trash /tmp/testfile*
+      - ls -l /tmp/testfile*
+      - trash-list
+      - ls -la $HOME/.trash/
+      - trash-restore
+      - ls -l /tmp/testfile*
+      - ls -la $HOME/.trash/
+
+  - name: test trash-rm
+    depends_on:
+      - install
+    image: ubuntu:latest
+    pull: if-not-exists
+    commands:
+      - touch /tmp/testfile{1..4}
+      - ls -l /tmp/testfile*
+      - trash /tmp/testfile*
+      - ls -l /tmp/testfile*
+      - trash-list
+      - ls -la $HOME/.trash/
+      - trash-rm testfile2 testfile3
+      - trash-list
+      - ls -la $HOME/.trash/
