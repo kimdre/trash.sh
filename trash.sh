@@ -19,8 +19,7 @@ trash_put() {
 
 trash_empty() {
   echo "Delete all $(find "$HOME"/.trash/ ! -name ".filepaths" | wc -l) files in trash?"
-  # shellcheck disable=SC2086
-  \rm -Ir $HOME/.trash/* && echo >"$FILE_PATHS_FILE"
+  \rm -Ir "$HOME"/.trash/* && echo >"$FILE_PATHS_FILE"
 }
 
 trash_restore() {

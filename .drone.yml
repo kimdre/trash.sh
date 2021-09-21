@@ -55,7 +55,7 @@ steps:
     depends_on:
       - install
       - test trash_restore
-    image: ubuntu:latest
+    image: bash:latest
     pull: if-not-exists
     commands:
       - /bin/bash
