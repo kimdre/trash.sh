@@ -10,11 +10,11 @@ trash_list() {
 }
 
 trash_put() {
-    for i in "$@"; do
+    for FILE in $@; do
         # Store old filepath for later restore
-        echo "$i $(readlink -f $i)" >> "$FILE_PATHS_FILE"
+        echo "$FILE $(readlink -f "$FILE")" >> "$FILE_PATHS_FILE"
     done
-    mv -uv "$*" "$HOME"/.trash/
+    mv -uv $* "$HOME"/.trash/
 }
 
 trash_empty() {
