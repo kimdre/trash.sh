@@ -22,6 +22,7 @@ steps:
     image: ubuntu:latest
     pull: if-not-exists
     commands:
+      - /bin/bash
       - touch /tmp/testfile{1..4}
       - ls -l /tmp/testfile*
       - trash /tmp/testfile*
@@ -37,6 +38,7 @@ steps:
     image: ubuntu:latest
     pull: if-not-exists
     commands:
+      - /bin/bash
       - touch /tmp/testfile{1..4}
       - ls -l /tmp/testfile*
       - trash /tmp/testfile*
@@ -53,6 +55,7 @@ steps:
     image: ubuntu:latest
     pull: if-not-exists
     commands:
+      - /bin/bash
       - touch /tmp/testfile{1..4}
       - ls -l /tmp/testfile*
       - trash /tmp/testfile*
