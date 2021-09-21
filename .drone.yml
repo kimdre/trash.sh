@@ -10,6 +10,7 @@ steps:
     image: ubuntu:latest
     pull: if-not-exists
     commands:
+      - apt-get update && apt-get install bash -y
       - echo "source $HOME/trash.sh" > $HOME/.bashrc
       - source $HOME/.bashrc
       - ls -la $HOME/.trash/
