@@ -7,7 +7,7 @@ workspace:
 
 steps:
   - name: install
-    image: ubuntu:latest
+    image: ubuntu:hirsute
     pull: if-not-exists
     commands:
       - echo ". $HOME/trash.sh" > $HOME/.bashrc
@@ -18,7 +18,7 @@ steps:
   - name: test trash_empty
     depends_on:
       - install
-    image: ubuntu:latest
+    image: ubuntu:hirsute
     pull: if-not-exists
     commands:
       - /bin/bash
@@ -35,7 +35,7 @@ steps:
   - name: test trash_restore
     depends_on:
       - install
-    image: ubuntu:latest
+    image: ubuntu:hirsute
     pull: if-not-exists
     commands:
       - /bin/bash
@@ -53,7 +53,7 @@ steps:
   - name: test trash_rm
     depends_on:
       - install
-    image: ubuntu:latest
+    image: ubuntu:hirsute
     pull: if-not-exists
     commands:
       - /bin/bash
