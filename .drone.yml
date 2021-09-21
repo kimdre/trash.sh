@@ -68,3 +68,13 @@ steps:
       - trash_rm testfile2 testfile3
       - trash_list
       - ls -la $HOME/.trash/
+
+  - name: test usage
+    depends_on:
+      - install
+      - test trash_restore
+    image: bash:latest
+    pull: if-not-exists
+    commands:
+      - . $HOME/.bashrc
+      - trash || true
