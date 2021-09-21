@@ -41,7 +41,7 @@ trash_rm() {
         if readlink -f "$FILE_TO_REMOVE" | grep "$HOME/.trash"; then
             \rm -Ir "$HOME"/.trash/"$FILE_TO_REMOVE" && sed -i "/$FILE_TO_REMOVE/d" "$FILE_PATHS_FILE"
 		else
-            echo "$i is not in Trash." && false
+            echo "$FILE_TO_REMOVE is not in Trash." && false
         fi
     done
 }
