@@ -11,7 +11,7 @@ usage() {
   local func_args=$1
   local func_name="$2"
 
-  if [[ $func_args == 0 ]]; then echo -e "At least one argument required:\n$func_name FILE1  DIR2 ..."; return 1; fi
+  if [[ $func_args == 0 ]]; then echo -e "At least one argument required:\n$func_name FILE1  DIR2 ..."; exit 1; fi
 }
 
 trash_list() {
