@@ -18,8 +18,8 @@ trash_put() {
 }
 
 trash_empty() {
-  echo "Delete all $(find "$HOME"/.trash/ ! -name ".filepaths" | wc -l) files in trash?"
-  \rm -ir "$HOME"/.trash/* && echo >"$FILE_PATHS_FILE"
+  echo "Delete all $(find "$HOME"/.trash/ ! -name ".filepaths" | tail -n +2 | wc -l) files in trash?"
+  \rm -irf "$HOME"/.trash/* && echo >"$FILE_PATHS_FILE"
 }
 
 trash_restore() {
