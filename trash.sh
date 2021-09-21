@@ -7,11 +7,20 @@ TRASH_DIR="$HOME"/.trash
 FILE_PATHS_FILE="$TRASH_DIR/.filepaths"
 [ ! -f "$FILE_PATHS_FILE" ] && touch "$FILE_PATHS_FILE"
 
+usage() {
+  local func_args=$1
+  local func_name="$2"
+
+  if [[ $func_args == 0 ]]; then echo -e "At least one argument required:\n$func_name FILE1  DIR2 ..."; return 1; fi
+}
+
 trash_list() {
   find "$TRASH_DIR" ! -name ".filepaths" | tail -n +2
 }
 
 trash_put() {
+  usage "$#" "$0"
+
   for FILE in $@; do
     # Store old filepath for later restore
     echo "$FILE $(readlink -f "$FILE")" >>"$FILE_PATHS_FILE"
@@ -25,6 +34,8 @@ trash_empty() {
 }
 
 trash_restore() {
+  usage "$#" "$0"
+
   for FILE_TO_RESTORE in "$@"; do
     # Get old filepath for restore
     OLD_PATH=$(grep "$FILE_TO_RESTORE" "$FILE_PATHS_FILE" | cut -d ' ' -f2)
@@ -38,6 +49,9 @@ trash_restore() {
 }
 
 trash_rm() {
+  usage "$#" "$0"
+  #if [[ $# == 0 ]]; then echo -e "At least one argument required:\n$0 FILE1  DIR2 ..."; return 1; fi
+
   for FILE_TO_REMOVE in "$@"; do
     if ! echo "$FILE_TO_REMOVE" | grep "$HOME/.trash"
       then FILEPATH_TO_REMOVE="$HOME/.trash/$FILE_TO_REMOVE"
