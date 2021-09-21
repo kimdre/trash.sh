@@ -3,9 +3,11 @@
 [![Build Status](https://drone.pyas.de/api/badges/Kim/trash/status.svg)](https://drone.pyas.de/Kim/trash)
 
 ## Installation:  
-Place the file in your desired path and it in your $HOME/.bashrc or in /etc/.bashrc:
+the trash.sh file in your desired path and source it in your $HOME/.bashrc or in /etc/.bashrc:
 
     . /path/to/trash.sh
+
+- As the Script runs it first checks if $HOME/.trash/ (your trash bin) in your home dir exists and creates it if missing.
 
 Add cleanup job to your cron:
 
@@ -13,7 +15,6 @@ Add cleanup job to your cron:
     0 6 * * 0 find /home/YOURHOME/.trash/ -mtime +31 -delete  
 
 ## Usage: 
-As the Script runs it first checks if $HOME/.trash/ (your trash bin) in your home dir exists and creates it if missing.
 
  - `trash FILE1 DIR2 ...` or `trash_put FILE1 DIR2 ...` to move files and directories with relative or absolute paths to your .trash
  - `trash_list` to list all files and dirs that you put in the trash in the last 30 days
