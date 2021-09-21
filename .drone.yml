@@ -11,8 +11,8 @@ steps:
     pull: if-not-exists
     commands:
       - /bin/bash
-      - echo "source $HOME/trash.sh" > $HOME/.bashrc
-      - source $HOME/.bashrc
+      - echo ". $HOME/trash.sh" > $HOME/.bashrc
+      - . $HOME/.bashrc
       - ls -la $HOME/.trash/
       - type trash
 
