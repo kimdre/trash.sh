@@ -11,7 +11,10 @@ usage() {
   local func_args=$1
   local func_name="$2"
 
-  if [[ $func_args == 0 ]]; then echo -e "At least one argument required:\n$func_name FILE1  DIR2 ..."; exit 1; fi
+  if [[ $func_args == 0 ]];
+    then echo -e "At least one argument required:\n$func_name FILE1  DIR2 ..."
+    exit
+  fi
 }
 
 trash_list() {
@@ -19,7 +22,7 @@ trash_list() {
 }
 
 trash_put() {
-  usage "$#" "$0"
+  usage "$#" "${FUNCNAME[0]}"
 
   for FILE in $@; do
     # Store old filepath for later restore
