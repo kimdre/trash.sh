@@ -35,6 +35,7 @@ steps:
   - name: test trash_restore
     depends_on:
       - install
+      - test trash_empty
     image: ubuntu:latest
     pull: if-not-exists
     commands:
@@ -53,6 +54,7 @@ steps:
   - name: test trash_rm
     depends_on:
       - install
+      - trash_restore
     image: ubuntu:latest
     pull: if-not-exists
     commands:
