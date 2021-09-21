@@ -10,7 +10,7 @@ steps:
     image: ubuntu:latest
     pull: if-not-exists
     commands:
-      - usermod -s /bin/bash root && /bin/bash
+      - /bin/bash
       - echo "source $HOME/trash.sh" > $HOME/.bashrc
       - source $HOME/.bashrc
       - ls -la $HOME/.trash/
