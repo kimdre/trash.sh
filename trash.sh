@@ -38,7 +38,7 @@ trash_restore() {
 
 trash_rm() {
   for FILE_TO_REMOVE in "$@"; do
-    if [[ ! "$FILE_TO_REMOVE" =~ $HOME/.trash ]]
+    if ! echo "$FILE_TO_REMOVE" | grep "$HOME/.trash"
       then FILE_TO_REMOVE="$HOME/.trash/$FILE_TO_REMOVE"
     fi
     if [ -f "$FILE_TO_REMOVE" ]; then
