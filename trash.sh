@@ -22,7 +22,7 @@ trash_list() {
 }
 
 trash_put() {
-  echo "${FUNCNAME[0]}"
+  echo "$FUNCNAME"
   usage "$#" "${FUNCNAME[0]}"
 
   for FILE in $@; do
