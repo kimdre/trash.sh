@@ -21,3 +21,6 @@ Add cleanup job to your cron:
  - `trash_empty` to remove all files and dirs in your trash
  - `trash_rm FILE1 DIR2 ...` to delete specific files and directories in your trash
  - `trash_restore FILE1 DIR2 ...`  to restore specific files and directories from your trash to it's origin
+
+## Credits
+Repo Icon made by [Freepik](https://www.freepik.com "Freepik") from [www.flaticon.com](https://www.flaticon.com/ "Flaticon")
