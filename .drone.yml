@@ -58,7 +58,6 @@ steps:
     image: bash:latest
     pull: if-not-exists
     commands:
-      - /bin/bash
       - . $HOME/.bashrc
       - for i in 1 2 3 4; do touch /tmp/testfile$i; done
       - ls -l /tmp
