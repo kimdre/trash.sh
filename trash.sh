@@ -37,7 +37,7 @@ trash_empty() {
 }
 
 trash_restore() {
-  usage "$#" "$0"
+  usage "$#" "${FUNCNAME[0]}"
 
   for FILE_TO_RESTORE in "$@"; do
     # Get old filepath for restore
@@ -52,7 +52,7 @@ trash_restore() {
 }
 
 trash_rm() {
-  usage "$#" "$0"
+  usage "$#" "${FUNCNAME[0]}"
   #if [[ $# == 0 ]]; then echo -e "At least one argument required:\n$0 FILE1  DIR2 ..."; return 1; fi
 
   for FILE_TO_REMOVE in "$@"; do
