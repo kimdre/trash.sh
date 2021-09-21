@@ -20,8 +20,8 @@ trash_put() {
 }
 
 trash_empty() {
+  echo "Delete $(find "$TRASH_DIR" ! -name ".filepaths" | tail -n +2 | wc -l) files in trash"
   \rm -rf "${TRASH_DIR:?}/"* && echo >"$FILE_PATHS_FILE"
-  echo "Deleted $(find "$TRASH_DIR" ! -name ".filepaths" | tail -n +2 | wc -l) files in trash"
 }
 
 trash_restore() {
