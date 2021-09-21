@@ -1,5 +1,7 @@
 # trash - A trash bin for files and directories instead of deleting them directly
 
+[![Build Status](https://drone.pyas.de/api/badges/Kim/trash/status.svg)](https://drone.pyas.de/Kim/trash)
+
 ## Installation:  
 Place the file in your desired path and it in your $HOME/.bashrc or in /etc/.bashrc:
 
