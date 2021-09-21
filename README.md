@@ -5,7 +5,7 @@
 ## Installation:  
 Place the file in your desired path and it in your $HOME/.bashrc or in /etc/.bashrc:
 
-    source /path/to/trash.sh
+    . /path/to/trash.sh
 
 Add cleanup job to your cron:
 
@@ -15,8 +15,8 @@ Add cleanup job to your cron:
 ## Usage: 
 As the Script runs it first checks if $HOME/.trash/ (your trash bin) in your home dir exists and creates it if missing.
 
- - `trash FILE1 DIR2 ...` or `trash-put FILE1 DIR2 ...` to move files and directories with relative or absolute paths to your .trash
- - `trash-list` to list all files and dirs that you put in the trash in the last 30 days
- - `trash-empty` to remove all files and dirs in your trash
- - `trash-rm FILE1 DIR2 ...` to delete specific files and directories in your trash
- - `trash-restore FILE1 DIR2 ...`  to restore specific files and directories from your trash to it's origin
+ - `trash FILE1 DIR2 ...` or `trash_put FILE1 DIR2 ...` to move files and directories with relative or absolute paths to your .trash
+ - `trash_list` to list all files and dirs that you put in the trash in the last 30 days
+ - `trash_empty` to remove all files and dirs in your trash
+ - `trash_rm FILE1 DIR2 ...` to delete specific files and directories in your trash
+ - `trash_restore FILE1 DIR2 ...`  to restore specific files and directories from your trash to it's origin

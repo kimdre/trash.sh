@@ -16,7 +16,7 @@ steps:
       - ls -la $HOME/.trash/
       - type trash
 
-  - name: test trash-empty
+  - name: test trash_empty
     depends_on:
       - install
     image: ubuntu:latest
@@ -26,12 +26,12 @@ steps:
       - ls -l /tmp/testfile*
       - trash /tmp/testfile*
       - ls -l /tmp/testfile*
-      - trash-list
+      - trash_list
       - ls -la $HOME/.trash/
-      - trash-empty
+      - trash_empty
       - ls -la $HOME/.trash/
 
-  - name: test trash-restore
+  - name: test trash_restore
     depends_on:
       - install
     image: ubuntu:latest
@@ -41,13 +41,13 @@ steps:
       - ls -l /tmp/testfile*
       - trash /tmp/testfile*
       - ls -l /tmp/testfile*
-      - trash-list
+      - trash_list
       - ls -la $HOME/.trash/
-      - trash-restore
+      - trash_restore
       - ls -l /tmp/testfile*
       - ls -la $HOME/.trash/
 
-  - name: test trash-rm
+  - name: test trash_rm
     depends_on:
       - install
     image: ubuntu:latest
@@ -57,8 +57,8 @@ steps:
       - ls -l /tmp/testfile*
       - trash /tmp/testfile*
       - ls -l /tmp/testfile*
-      - trash-list
+      - trash_list
       - ls -la $HOME/.trash/
-      - trash-rm testfile2 testfile3
-      - trash-list
+      - trash_rm testfile2 testfile3
+      - trash_list
       - ls -la $HOME/.trash/
