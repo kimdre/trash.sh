@@ -19,7 +19,7 @@ trash_put() {
 
 trash_empty() {
   echo "Delete all $(find "$HOME"/.trash/ ! -name ".filepaths" | wc -l) files in trash?"
-  \rm -Ir "$HOME"/.trash/* && echo >"$FILE_PATHS_FILE"
+  \rm -ir "$HOME"/.trash/* && echo >"$FILE_PATHS_FILE"
 }
 
 trash_restore() {
@@ -42,7 +42,7 @@ trash_rm() {
       else FILEPATH_TO_REMOVE="$FILE_TO_REMOVE"
     fi
     if [ -f "$FILEPATH_TO_REMOVE" ]; then
-      \rm -rf "$FILEPATH_TO_REMOVE" && sed -i "/$FILE_TO_REMOVE/d" "$FILE_PATHS_FILE"
+      \rm -irf "$FILEPATH_TO_REMOVE" && sed -i "/$FILE_TO_REMOVE/d" "$FILE_PATHS_FILE"
     else
       echo "$FILE_TO_REMOVE is not in Trash." && false
     fi
