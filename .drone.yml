@@ -23,7 +23,7 @@ steps:
     commands:
       - /bin/bash
       - . $HOME/.bashrc
-      - touch /tmp/testfile{1..4}
+      - for i in 1 2 3 4; do touch /tmp/testfile$i; done
       - ls -l /tmp/testfile*
       - trash /tmp/testfile*
       - ls -l /tmp/testfile*
@@ -40,7 +40,7 @@ steps:
     commands:
       - /bin/bash
       - . $HOME/.bashrc
-      - touch /tmp/testfile{1..4}
+      - for i in 1 2 3 4; do touch /tmp/testfile$i; done
       - ls -l /tmp/testfile*
       - trash /tmp/testfile*
       - ls -l /tmp/testfile*
@@ -58,7 +58,7 @@ steps:
     commands:
       - /bin/bash
       - . $HOME/.bashrc
-      - touch /tmp/testfile{1..4}
+      - for i in 1 2 3 4; do touch /tmp/testfile$i; done
       - ls -l /tmp/testfile*
       - trash /tmp/testfile*
       - ls -l /tmp/testfile*
