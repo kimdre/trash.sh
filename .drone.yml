@@ -29,6 +29,7 @@ steps:
       - trash_list
       - ls -la $HOME/.trash/
       - trash_empty
+      - trash_list
       - ls -la $HOME/.trash/
 
   - name: test trash_restore
