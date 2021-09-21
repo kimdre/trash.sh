@@ -6,11 +6,11 @@ FILE_PATHS_FILE="$HOME/.trash/.filepaths"
 [ ! -f "$FILE_PATHS_FILE" ] && touch "$FILE_PATHS_FILE"
 
 trash_list() {
-    ls -lrth "$HOME"/.trash/
+    find "$HOME"/.trash/
 }
 
 trash_put() {
-    for FILE in $@; do
+    for FILE in "$@"; do
         # Store old filepath for later restore
         echo "$FILE $(readlink -f "$FILE")" >> "$FILE_PATHS_FILE"
     done
