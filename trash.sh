@@ -23,7 +23,7 @@ trash_empty() {
 }
 
 trash_restore() {
-  for FILE_TO_RESTORE in $@; do
+  for FILE_TO_RESTORE in "$@"; do
     # Get old filepath for restore
     OLD_PATH=$(grep "$FILE_TO_RESTORE" "$FILE_PATHS_FILE" | cut -d ' ' -f2)
 
