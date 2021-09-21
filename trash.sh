@@ -14,7 +14,7 @@ trash_put() {
     # Store old filepath for later restore
     echo "$FILE $(readlink -f "$FILE")" >>"$FILE_PATHS_FILE"
   done
-  mv -v $* "$HOME"/.trash/
+  mv -v "$*" "$HOME"/.trash/
 }
 
 trash_empty() {
@@ -37,7 +37,7 @@ trash_restore() {
 
 trash_rm() {
   for FILE_TO_REMOVE in "$@"; do
-    if ! echo "$FILE_TO_REMOVE" | grep "$HOME/.trash"
+    if ! "$FILE_TO_REMOVE" ~= grep "$HOME"/.trash
       then FILEPATH_TO_REMOVE="$HOME/.trash/$FILE_TO_REMOVE"
       else FILEPATH_TO_REMOVE="$FILE_TO_REMOVE"
     fi
