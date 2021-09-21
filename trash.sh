@@ -9,10 +9,9 @@ FILE_PATHS_FILE="$TRASH_DIR/.filepaths"
 
 usage() {
   local func_args="$1"
-  local func_name="$2"
 
   if [[ $func_args == 0 ]];
-    then echo -e "At least one argument required:\n$func_name FILE1  DIR2 ..."
+    then echo -e "At least one argument required:\ncommand FILE1  DIR2 ..."
     exit
   fi
 }
@@ -22,7 +21,7 @@ trash_list() {
 }
 
 trash_put() {
-  usage "$#" "trash_put"
+  usage "$#"
 
   for FILE in $@; do
     # Store old filepath for later restore
@@ -37,7 +36,7 @@ trash_empty() {
 }
 
 trash_restore() {
-  usage "$#" "trash_restore"
+  usage "$#"
 
   for FILE_TO_RESTORE in "$@"; do
     # Get old filepath for restore
@@ -52,7 +51,7 @@ trash_restore() {
 }
 
 trash_rm() {
-  usage "$#" "trash_rm"
+  usage "$#"
 
   for FILE_TO_REMOVE in "$@"; do
     if ! echo "$FILE_TO_REMOVE" | grep "$HOME/.trash"
