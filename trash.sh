@@ -42,7 +42,7 @@ trash_rm() {
       then FILE_TO_REMOVE="$HOME/.trash/$FILE_TO_REMOVE"
     fi
     if [ -f "$FILE_TO_REMOVE" ]; then
-      \rm -Ir "$HOME"/.trash/"$FILE_TO_REMOVE" && sed -i "/$FILE_TO_REMOVE/d" "$FILE_PATHS_FILE"
+      \rm -Irf "$HOME"/.trash/"$FILE_TO_REMOVE" && sed -i "/$FILE_TO_REMOVE/d" "$FILE_PATHS_FILE"
     else
       echo "$FILE_TO_REMOVE is not in Trash." && false
     fi
