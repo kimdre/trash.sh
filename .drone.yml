@@ -7,7 +7,7 @@ workspace:
 
 steps:
   - name: install
-    image: ubuntu:latest
+    image: bash:latest
     pull: if-not-exists
     commands:
       - echo ". $HOME/trash.sh" > $HOME/.bashrc
@@ -18,7 +18,7 @@ steps:
   - name: test trash_empty
     depends_on:
       - install
-    image: ubuntu:latest
+    image: bash:latest
     pull: if-not-exists
     commands:
       - /bin/bash
@@ -36,7 +36,7 @@ steps:
     depends_on:
       - install
       - test trash_empty
-    image: ubuntu:latest
+    image: bash:latest
     pull: if-not-exists
     commands:
       - /bin/bash
