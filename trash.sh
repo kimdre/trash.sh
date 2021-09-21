@@ -6,7 +6,7 @@ FILE_PATHS_FILE="$HOME/.trash/.filepaths"
 [ ! -f "$FILE_PATHS_FILE" ] && touch "$FILE_PATHS_FILE"
 
 trash_list() {
-  find "$HOME"/.trash/
+  find "$HOME"/.trash/ ! -name ".filepaths"
 }
 
 trash_put() {
@@ -18,7 +18,7 @@ trash_put() {
 }
 
 trash_empty() {
-  echo "Delete all $(find "$HOME"/.trash/* | wc -l) files in trash?"
+  echo "Delete all $(find "$HOME"/.trash/ ! -name ".filepaths" | wc -l) files in trash?"
   # shellcheck disable=SC2086
   \rm -Ir $HOME/.trash/* && echo >"$FILE_PATHS_FILE"
 }
@@ -38,7 +38,10 @@ trash_restore() {
 
 trash_rm() {
   for FILE_TO_REMOVE in "$@"; do
-    if readlink -f "$FILE_TO_REMOVE" | grep "$HOME/.trash"; then
+    if ! [[ "$FILE_TO_REMOVE" =~ $HOME/.trash ]]
+      then FILE_TO_REMOVE="$HOME/.trash/$FILE_TO_REMOVE"
+    fi
+    if find "$FILE_TO_REMOVE" >& /dev/null; then
       \rm -Ir "$HOME"/.trash/"$FILE_TO_REMOVE" && sed -i "/$FILE_TO_REMOVE/d" "$FILE_PATHS_FILE"
     else
       echo "$FILE_TO_REMOVE is not in Trash." && false
