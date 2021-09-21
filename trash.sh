@@ -38,10 +38,11 @@ trash_restore() {
 trash_rm() {
   for FILE_TO_REMOVE in "$@"; do
     if ! echo "$FILE_TO_REMOVE" | grep "$HOME/.trash"
-      then FILE_TO_REMOVE="$HOME/.trash/$FILE_TO_REMOVE"
+      then FILEPATH_TO_REMOVE="$HOME/.trash/$FILE_TO_REMOVE"
+      else FILEPATH_TO_REMOVE="$FILE_TO_REMOVE"
     fi
-    if [ -f "$FILE_TO_REMOVE" ]; then
-      \rm -rf "$HOME"/.trash/"$FILE_TO_REMOVE" && sed -i "/$FILE_TO_REMOVE/d" "$FILE_PATHS_FILE"
+    if [ -f "$FILEPATH_TO_REMOVE" ]; then
+      \rm -rf "$FILEPATH_TO_REMOVE" && sed -i "/$FILE_TO_REMOVE/d" "$FILE_PATHS_FILE"
     else
       echo "$FILE_TO_REMOVE is not in Trash." && false
     fi
