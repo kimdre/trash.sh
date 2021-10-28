@@ -1,18 +1,18 @@
-# trash - A trash bin for files and directories instead of deleting them directly
+# trash.sh - A trash bin for files and directories instead of deleting them directly
 
-[![Build Status](https://drone.pyas.de/api/badges/Kim/trash/status.svg)](https://drone.pyas.de/Kim/trash)
+[![Build Status](https://drone.pyas.de/api/badges/Kim/trash.sh/status.svg)](https://drone.pyas.de/Kim/trash.sh)
 
 ## Installation:  
-the trash.sh file in your desired path and source it in your $HOME/.bashrc or in /etc/.bashrc:
+Put the trash.sh file to your desired location (e.g home directory) and source it in your $HOME/.bashrc or in /etc/.bashrc:
 
     . /path/to/trash.sh
 
-- As the Script runs it first checks if $HOME/.trash/ (your trash bin) in your home dir exists and creates it if missing.
+- When the script runs, it first checks if `$HOME/.trash/` (your trash bin) exists and creates it if missing.
 
-Add cleanup job to your cron:
+Add the cleanup job to your crontab:
 
     # .trash cleanup of all contents (files and dirs) older than 31 days every morning at 06:00
-    0 6 * * 0 find /home/YOURHOME/.trash/ -mtime +31 -delete  
+    0 6 * * 0 find $HOME/.trash/ -mtime +31 -delete  
 
 ## Usage: 
 
