@@ -77,4 +77,4 @@ steps:
     pull: if-not-exists
     commands:
       - . $HOME/.bashrc
-      - trash
+      - trash | grep required
