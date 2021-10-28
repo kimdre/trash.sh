@@ -3,7 +3,7 @@
 [![Build Status](https://drone.pyas.de/api/badges/Kim/trash.sh/status.svg)](https://drone.pyas.de/Kim/trash.sh)
 
 ## Installation:  
-Put the trash.sh file to your desired location (e.g home directory) and source it in your $HOME/.bashrc or in /etc/.bashrc:
+Put the trash.sh file to your desired location (e.g home directory) and source it in your `$HOME/.bashrc` or in `/etc/.bashrc`:
 
     . /path/to/trash.sh
 
