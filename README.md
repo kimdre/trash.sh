@@ -1,4 +1,4 @@
-# trash.sh - A trash bin for files and directories instead of deleting them directly
+# trash.sh - A cli trash bin for files and directories instead of deleting them directly
 
 [![Build Status](https://drone.pyas.de/api/badges/Kim/trash.sh/status.svg)](https://drone.pyas.de/Kim/trash.sh)
 
